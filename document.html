@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+ <html>
+ 	
+<head>
+<title>RESTful API documentation</title>
+ </head>
+
+ <body onload="initialize()">
+	<h1>A Restful API for accessing a real-world data set</h1>
+	<p>Problem:cannot use few server(not from few)</p>
+	
+	<div style="width:500px;height:500px" id="map-canvas"> </div>
+		
+	<div>
+	<br />
+	
+	<div class="yui3-skin-sam"> <!-- You need this skin class -->
+    <div id="simple"> </div>
+    
+    <div id="labels"> </div>
+	</div>
+
+		<h2>(1)Read</h2>
+		<h3>HTTP-Method:GET</h3><br />
+		parameters:(1)year  
+			       (2)month <br />
+			       e.g. year=2012&amp;month=&quot;November&quot;<br />
+					or year=2012&amp; month=November<br />
+		Note:use year=0 and month=0 to retreive all the data
+		
+		<br />
+	    <h3> Response:</h3>
+		if sucessful:return the required data and response code:200<br />
+		if not sucessful(there is not requested data on server):response code:404
+	</div>	
+	
+	<div>
+		<h2>(2)Create</h2>
+		<h3>HTTP-Method:POST</h3><br />
+		parameter in json format:<br />
+		e.g curl -v -X POST -d  '{"month":"November","year":"2012","hci
+p":"3.2","muicp":"2.222","eicp":"2.4"}'   http://localhost/ass3.php
+	 <h3> Response:</h3>
+		if sucessful:response code:201<br />
+		if not sucessful(data corrsepending to month and year that user types already exist):response code:404
+		<br />if json syntax error:response code:400
+	</div>
+	
+	<div>
+		<h2>(3)Modify</h2>
+		<h3>HTTP-Method:PUT</h3><br />
+		parameter in json format:(same as (2))<br />
+		<h3> Response:</h3>
+		if sucessful:response code:200<br />
+		if not sucessful(data corrsepending to month and year that user types doesn't exist):response code:404
+	    <br />if json syntax error:response code:400
+	</div>
+	
+	<div>
+		<h2>(4)Delete</h2>
+		<h3>HTTP-Method:DELETE</h3><br />
+		parameter in json format:<br />
+		parameters:(1)year  
+			       (2)month <br />
+			        e.g. curl -v -X DELETE -d '{"month":"November","year":"2012"}'
+ http://localhost/ass3.php
+ 		if json syntax error:response code:400
+;<br />
+		<h3> Response:</h3>
+		if sucessful:response code:200<br />
+		if not sucessful(data corrsepending to month and year that user types doesn't exist):response code:404
+		<br />if json syntax error:response code:400
+	</div>
+	
+	<!--javascipt-->
+	  <script src="http://yui.yahooapis.com/3.14.1/build/yui/yui-min.js"></script>
+	  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+		<script type="text/javascript" src="js/js.js"> 
+		</script>
+		
+</body>
+</html>
