@@ -3,11 +3,39 @@
  	
 <head>
 <title>RESTful API documentation</title>
+<link rel="stylesheet" type="text/css" href="js/style.css" media="screen" />
  </head>
 
- <body onload="initialize()">
+ <body onload="initialize1()">
 	<h1>A Restful API for accessing a real-world data set</h1>
 	<p>Problem:cannot use few server(not from few)</p>
+	
+	<!-- HSL Color Picker -->
+	<br>
+	<div class="picker">
+	    <div id="hue-dial"> </div>
+	    <div class="sliders">
+	        <div id="sat-slider"><strong>Saturation: <span> </span></strong></div>
+	        <div id="lum-slider"><strong>Luminance: <span> </span></strong></div>
+	    </div>
+	    <div class="color"> </div>
+	</div>
+
+	<!-- Picker Output -->
+	<div class="yui3-g picker-output">
+	    <div class="yui3-u-1-3">
+	        <strong>Hexadecimal:</strong>
+	        <input type="text" id="hex-output">
+	    </div>
+	    <div class="yui3-u-1-3">
+	        <strong>RGB:</strong>
+	        <input type="text" id="rgb-output">
+	    </div>
+	    <div class="yui3-u-1-3">
+	        <strong>HSL:</strong>
+	        <input type="text" id="hsl-output">
+	    </div>
+	</div>
 	
 	<div style="width:500px;height:500px" id="map-canvas"> </div>
 		
@@ -19,19 +47,19 @@
     
     <div id="labels"> </div>
 	</div>
-
-		<h2>(1)Read</h2>
-		<h3>HTTP-Method:GET</h3><br />
-		parameters:(1)year  
-			       (2)month <br />
-			       e.g. year=2012&amp;month=&quot;November&quot;<br />
-					or year=2012&amp; month=November<br />
-		Note:use year=0 and month=0 to retreive all the data
-		
-		<br />
-	    <h3> Response:</h3>
-		if sucessful:return the required data and response code:200<br />
-		if not sucessful(there is not requested data on server):response code:404
+	
+	<h2>(1)Read</h2>
+	<h3>HTTP-Method:GET</h3><br />
+	parameters:(1)year  
+		       (2)month <br />
+		       e.g. year=2012&amp;month=&quot;November&quot;<br />
+				or year=2012&amp; month=November<br />
+	Note:use year=0 and month=0 to retreive all the data
+	
+	<br />
+    <h3> Response:</h3>
+	if sucessful:return the required data and response code:200<br />
+	if not sucessful(there is not requested data on server):response code:404
 	</div>	
 	
 	<div>
